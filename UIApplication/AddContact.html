@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="./contact.js"></script>
+	<script>
+	$(document).ready(function(){
+	  var url = new URL(window.location);
+	  var guid = url.searchParams.get("id");
+	  if(guid != undefined && guid != ""){
+		getContact(guid);	
+	  }
+	});
+	</script>
+</head>
+<body>
+	<div>
+	<button type="button" onclick="window.location ='./ListContact.html';" class="Contactbtn">All Contacts</button>
+	<button type="button" onclick="window.location ='./AddContact.html';" class="Contactbtn">Add Contact</button>
+	</div>
+	  <div class="container">
+		<h1>Add Contact</h1>
+		<p>Fill Contact Details</p>
+		<hr>
+		<input id="guid" style="display:none">
+		
+		<label for="firstName"><b>first name</b></label>
+		<input type="text" placeholder="Enter first name" name="firstName" id="firstName" required>
+
+		<label for="last name"><b>last name</b></label>
+		<input type="text" placeholder="Enter last name" name="last name" id="LastName" required>
+
+		
+		<label for="email"><b>Email</b></label>
+		<input type="text" placeholder="Enter email" name="email" id="email" required>
+
+		<label for="phone number"><b>phone number</b></label>
+		<input type="text" placeholder="Enter phone number" name="Phone Number" id="PhoneNumber" required>
+
+		<button type="button" id="saveContact" onclick="saveContact()" class="registerbtn">Save Contact</button>
+		<button type="button" id="updatecontact" onclick="updateContact()" class="registerbtn" style="display:none">Update Contact</button>
+	  </div>
+</body>
+</html>

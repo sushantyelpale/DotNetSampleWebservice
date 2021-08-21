@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./contact.js"></script>
+<script>
+$(document).ready(function(){
+	getAllContacts();
+});
+</script>
+</head>
+<body>
+	<div>
+	<button type="button" onclick="window.location ='./ListContact.html';" class="Contactbtn">All Contacts</button>
+	<button type="button" onclick="window.location ='./AddContact.html';" class="Contactbtn">Add Contact</button>
+	</div>
+	<div class="container">
+		<h2>Contact List</h2>
+		<div id="idUserList">
+			<table>
+			  <tr>
+				<th>Name</th>
+				<th>Contact</th>
+				<th>Email</th>
+				<th>Action</th>
+			  </tr>
+			</table>
+		</div>
+	</div>		
+</body>
+</html>
