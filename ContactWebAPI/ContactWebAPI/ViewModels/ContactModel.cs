@@ -12,7 +12,7 @@ namespace ContactWebAPI
         [Required]
         public string firstName { get; set; }
         [Required]
-        public string lastNme { get; set; }
+        public string lastName { get; set; }
         public string email { get; set; }
         [Required]
         public string phoneNumber { get; set; }

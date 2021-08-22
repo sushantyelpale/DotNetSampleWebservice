@@ -4,7 +4,7 @@ function getContact(guid){
 $.get(baseurl + "/Contact/GetContact/" + guid, function(data, status){
 	$("#guid").val(data.guid); 
 	$("#firstName").val(data.firstName); 
-	$("#LastName").val(data.lastNme); 
+	$("#LastName").val(data.lastName); 
 	$("#email").val(data.email); 
 	$("#PhoneNumber").val(data.phoneNumber); 
 	
@@ -17,7 +17,7 @@ function getAllContacts(){
 	$.get(baseurl + "/Contact/GetAllContacts" , function(data, status){
 	for (var i = 0; i < data.length; i++) {
 		var row$ = $('<tr>');
-		row$.append('<th>' + data[i]["firstName"] + " " + data[i]["lastNme"] + '</th>');
+		row$.append('<th>' + data[i]["firstName"] + " " + data[i]["lastName"] + '</th>');
 		row$.append('<th>' + data[i]["phoneNumber"] + '</th>');
 		row$.append('<th>' + data[i]["email"] + '</th>');
 		row$.append('<th>' + "<button class='Actionbtn' onclick='editContact(\"" + data[i]["guid"] + "\")'>View / Edit</button>    <button class='Actionbtn' onclick='deleteContact(\"" + data[i]["guid"] + "\")'>Delete</button></th>");
@@ -50,7 +50,7 @@ function saveContact(){
 	  },
 	  "data": JSON.stringify({
 		"firstName": $("#firstName").val(),
-		"lastNme": $("#LastName").val(),
+		"lastName": $("#LastName").val(),
 		"email": $("#email").val(),
 		"phoneNumber": $("#PhoneNumber").val()
 	  }),
@@ -71,7 +71,7 @@ function updateContact(){
 	  "data": JSON.stringify({
 		"guid": $("#guid").val(),
 		"firstName": $("#firstName").val(),
-		"lastNme": $("#LastName").val(),
+		"lastName": $("#LastName").val(),
 		"email": $("#email").val(),
 		"phoneNumber": $("#PhoneNumber").val()
 	  }),

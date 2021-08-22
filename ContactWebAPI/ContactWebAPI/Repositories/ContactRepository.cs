@@ -23,7 +23,7 @@ namespace ContactWebAPI
                     email = e.Email,
                     firstName = e.FirstName,
                     guid = e.Guid,
-                    lastNme = e.LastName,
+                    lastName = e.LastName,
                     phoneNumber = e.PhoneNumber,
                     status = (phoneStatus)e.Status
                 }).ToListAsync();
@@ -39,7 +39,7 @@ namespace ContactWebAPI
                     email = e.Email,
                     firstName = e.FirstName,
                     guid = e.Guid,
-                    lastNme = e.LastName,
+                    lastName = e.LastName,
                     phoneNumber = e.PhoneNumber,
                     status = (phoneStatus)e.Status
                 }).FirstOrDefaultAsync();
@@ -59,7 +59,7 @@ namespace ContactWebAPI
             {
                 Email = contact.email,
                 FirstName = contact.firstName,
-                LastName = contact.lastNme,
+                LastName = contact.lastName,
                 Guid = Guid.NewGuid(),
                 PhoneNumber = contact.phoneNumber,
                 Status = (int)phoneStatus.Active
@@ -74,7 +74,7 @@ namespace ContactWebAPI
         {
             _context.Contact.Where(e => e.Guid.Equals(contact.guid)).ToList().ForEach(e => {
                 e.FirstName = contact.firstName;
-                e.LastName = contact.lastNme;
+                e.LastName = contact.lastName;
                 e.PhoneNumber = contact.phoneNumber;
                 e.Email = contact.email;
                 e.Status = (int)phoneStatus.Active;
