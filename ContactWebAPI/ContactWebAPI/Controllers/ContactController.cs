@@ -18,32 +18,32 @@ namespace ContactWebAPI.Controllers
         }
 
         [HttpGet("GetAllContacts")]
-        public IEnumerable<ContactModel> GetAllContacts()
+        public async Task<IEnumerable<ContactModel>> GetAllContacts()
         {
-            return _repo.getAllContacts();
+            return await _repo.getAllContactsAsync();
         }
 
         [HttpGet("GetContact/{guid}")]
-        public ContactModel GetContact(Guid guid)
+        public async Task<ContactModel> GetContact(Guid guid)
         {
-            return _repo.getContact(guid);
+            return await _repo.getContactAsync(guid);
         }
 
         [HttpPost("AddContact")]
-        public string AddContact([FromBody] ContactModel model)
+        public async Task<string> AddContact([FromBody] ContactModel model)
         {
             if(!ModelState.IsValid)
             {
                 throw new AppException(StringResources.InvalidData);
             }
 
-            return _repo.addContact(model);
+            return await _repo.addContactAsync(model);
         }
 
         [HttpPost("EditContact")]
-        public string EditContact([FromBody] ContactModel model)
+        public async Task<string> EditContact([FromBody] ContactModel model)
         {
-            if(!ModelState.IsValid || !_repo.editContact(model))
+            if(!ModelState.IsValid || !await _repo.editContactAsync(model))
             {
                 throw new AppException(StringResources.InvalidData);
             }
@@ -52,9 +52,9 @@ namespace ContactWebAPI.Controllers
 
         // DELETE api/values/5
         [HttpDelete("DeleteContact/{guid}")]
-        public string DeleteContact(Guid guid)
+        public async Task<string> DeleteContact(Guid guid)
         {
-            if(!_repo.deleteContact(guid))
+            if(!await _repo.deleteContactAsync(guid))
             {
                 throw new AppException(StringResources.InvalidData);
             }

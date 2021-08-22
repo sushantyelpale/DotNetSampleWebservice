@@ -11800,11 +11800,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sushant.yelpale\\source\\repos\\ContactWebAPI\\ContactWebAPI\\ContactWebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\sushant.yelpale\\source\\repos\\Contact Service Project\\ContactWebAPI\\ContactWebAPI\\ContactWebAPI.csproj",
       "projectName": "ContactWebAPI",
-      "projectPath": "C:\\Users\\sushant.yelpale\\source\\repos\\ContactWebAPI\\ContactWebAPI\\ContactWebAPI.csproj",
+      "projectPath": "C:\\Users\\sushant.yelpale\\source\\repos\\Contact Service Project\\ContactWebAPI\\ContactWebAPI\\ContactWebAPI.csproj",
       "packagesPath": "C:\\Users\\sushant.yelpale\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sushant.yelpale\\source\\repos\\ContactWebAPI\\ContactWebAPI\\obj\\",
+      "outputPath": "C:\\Users\\sushant.yelpale\\source\\repos\\Contact Service Project\\ContactWebAPI\\ContactWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

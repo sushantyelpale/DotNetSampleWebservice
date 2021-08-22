@@ -12,3 +12,17 @@ C:\Users\sushant.yelpale\source\repos\ContactWebAPI\ContactWebAPI\obj\Debug\netc
 C:\Users\sushant.yelpale\source\repos\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.RazorTargetAssemblyInfo.cache
 C:\Users\sushant.yelpale\source\repos\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.dll
 C:\Users\sushant.yelpale\source\repos\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.pdb
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\bin\Debug\netcoreapp2.1\ContactWebAPI.deps.json
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\bin\Debug\netcoreapp2.1\ContactWebAPI.runtimeconfig.json
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\bin\Debug\netcoreapp2.1\ContactWebAPI.runtimeconfig.dev.json
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\bin\Debug\netcoreapp2.1\ContactWebAPI.dll
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\bin\Debug\netcoreapp2.1\ContactWebAPI.pdb
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.csprojAssemblyReference.cache
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.RazorAssemblyInfo.cache
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.RazorAssemblyInfo.cs
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.AssemblyInfoInputs.cache
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.AssemblyInfo.cs
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.RazorTargetAssemblyInfo.cache
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.dll
+C:\Users\sushant.yelpale\source\repos\Contact Service Project\ContactWebAPI\ContactWebAPI\obj\Debug\netcoreapp2.1\ContactWebAPI.pdb

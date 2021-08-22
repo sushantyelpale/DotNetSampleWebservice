@@ -1,65 +1,97 @@
-﻿using System;
+﻿using ContactWebAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactWebAPI
 {
     public class ContactRepository : IContactRepository
     {
-        private static List<ContactModel> contactList;
-        public ContactRepository()
+        private readonly ContactsDbContext _context;
+
+        public ContactRepository(ContactsDbContext context)
         {
-            if(contactList == null)
-                contactList = new List<ContactModel>();
+            _context = context;
         }
 
-        public IEnumerable<ContactModel> getAllContacts()
+        public async Task<IEnumerable<ContactModel>> getAllContactsAsync()
         {
-            return contactList.Where(e => e.status.Equals(phoneStatus.Active)).ToList();
+            var data = await _context.Contact.Where(e => e.Status.Equals((int)phoneStatus.Active))
+                .Select(e=> new ContactModel {
+                    email = e.Email,
+                    firstName = e.FirstName,
+                    guid = e.Guid,
+                    lastNme = e.LastName,
+                    phoneNumber = e.PhoneNumber,
+                    status = (phoneStatus)e.Status
+                }).ToListAsync();
+
+            return data;
         }
 
-        public ContactModel getContact(Guid guid)
+        public async Task<ContactModel> getContactAsync(Guid guid)
         {
-            return contactList.Where(e => e.guid.Equals(guid)).FirstOrDefault();
+            return await _context.Contact.Where(e => e.Guid.Equals(guid))
+                .Select(e => new ContactModel
+                {
+                    email = e.Email,
+                    firstName = e.FirstName,
+                    guid = e.Guid,
+                    lastNme = e.LastName,
+                    phoneNumber = e.PhoneNumber,
+                    status = (phoneStatus)e.Status
+                }).FirstOrDefaultAsync();
         }
 
-        public string addContact(ContactModel contact)
+        public async Task<string> addContactAsync(ContactModel contact)
         {
-            var selectedContacts = contactList.Where(e => e.phoneNumber.Equals(contact.phoneNumber) || e.email.Equals(contact.email)).ToList();
+            var selectedContacts = await _context.Contact
+                .Where(e => e.PhoneNumber.Equals(contact.phoneNumber) || e.Email.Equals(contact.email))
+                .ToListAsync();
             if (selectedContacts.Any())
             {
                 return StringResources.DuplicatePhoneOrEmail;
             }
-
-            contact.guid = Guid.NewGuid();
-            contact.status = phoneStatus.Active;
-
-            contactList.Add(contact);
+            
+            Contact ct = new Contact()
+            {
+                Email = contact.email,
+                FirstName = contact.firstName,
+                LastName = contact.lastNme,
+                Guid = Guid.NewGuid(),
+                PhoneNumber = contact.phoneNumber,
+                Status = (int)phoneStatus.Active
+            };
+            _context.Add(ct);
+            await _context.SaveChangesAsync();
 
             return StringResources.ContactAddedSuccessfully;
         }
 
-        public bool editContact(ContactModel contact)
+        public async Task<bool> editContactAsync(ContactModel contact)
         {
-            contactList.Where(e => e.guid.Equals(contact.guid)).ToList().ForEach(e => {
-                e.firstName = contact.firstName;
-                e.lastNme = contact.lastNme;
-                e.phoneNumber = contact.phoneNumber;
-                e.email = contact.email;
-                e.status = phoneStatus.Active;
+            _context.Contact.Where(e => e.Guid.Equals(contact.guid)).ToList().ForEach(e => {
+                e.FirstName = contact.firstName;
+                e.LastName = contact.lastNme;
+                e.PhoneNumber = contact.phoneNumber;
+                e.Email = contact.email;
+                e.Status = (int)phoneStatus.Active;
             });
+            await _context.SaveChangesAsync();
             return true;
         }
 
-        public bool deleteContact(Guid guid)
+        public async Task<bool> deleteContactAsync(Guid guid)
         {
-            var list = contactList.Where(e => e.guid.Equals(guid)).ToList();
+            var list = await _context.Contact.Where(e => e.Guid.Equals(guid)).ToListAsync();
             if(!list.Any())
             {
                 return false;
             }
-            list.ForEach(e => e.status = phoneStatus.InActive);
+            list.ForEach(e => e.Status = (int)phoneStatus.InActive);
+            await _context.SaveChangesAsync();
             return true;
         }
     }
